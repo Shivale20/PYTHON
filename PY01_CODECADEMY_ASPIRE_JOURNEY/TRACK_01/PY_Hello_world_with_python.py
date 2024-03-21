@@ -187,3 +187,68 @@ Love of my life!
 Isn't it right?
 """
 print("poetry with line indentation in terminal: ", lines)
+
+"""
+Hi Jarvis, today is going to be an ARTISTIC day.
+we are going to create ASCII ART using block letters.
+we will start with very simple task of writing our initials in 7x5 space.
+"""
+
+#I go by Manish Shivale and I sucks at coding! 
+#My intial is MS.
+
+print(
+    """
+    M       M   SSS
+    M M   M M  S   S
+    M  M M  M  S
+    M   M   M   SSS
+    M       M      S
+    M       M  S   S    
+    M       M   SSS
+    """
+)
+
+"""
+Hey! it is fun. Since it winter time. Let's make snowman.
+However it is very tedius job. Is there any shortcut?
+
+I can use multistring but that is kind a old way.
+
+There is library named pyfiglet. Let's install that and use it.
+"""
+import pyfiglet
+art = pyfiglet.figlet_format(text="snowman", font="block")
+print(art)
+
+#naah it did not work but I can actually write something using it
+letter_m = pyfiglet.figlet_format("M", font= "banner")
+letter_s = pyfiglet.figlet_format("S", font= "banner")
+intials = letter_m + letter_s
+intials = intials.replace("#", "\033[31m" )
+print(intials)
+
+"""wait! my terminal is showing red too.
+that is not right! I need to make sure to reset the color right away.
+"""
+new_intials = letter_m + letter_s
+new_intials = new_intials.replace("#", "\033[31m" + "#" + "\033[0m")
+print(new_intials)
+
+# lets try something digital format with my name
+my_name = pyfiglet.figlet_format("Manish & Jarvis", font= "digital")
+print(my_name)
+
+# how about we check something with color and banner. Check this out.
+
+bomb = pyfiglet.figlet_format("bomb", font= "banner")
+bomb = bomb.replace("#", "\033[36m" + "#" + "\033[0m")
+print(bomb)
+
+# so next time if we will be asked to write our intial in terminal using python
+# here is our step
+
+# import pyfiglet library and do this
+my_intial = pyfiglet.figlet_format("M S", font= "banner")
+print(my_intial)
+
