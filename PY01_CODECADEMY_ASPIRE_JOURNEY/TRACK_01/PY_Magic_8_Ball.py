@@ -125,3 +125,110 @@ else:
     print("Magic 8-Ball's answer: ", answer)
 
 print("\n------------End of output------------")
+
+"""
+Idea is : Refactor this game using new concepts I learned.
+Add new feature: Also, tell how should one feel based on answer they are category.
+
+A standard Magic 8 Ball has twenty possible answers, including ten affirmative answers (●), five non-committal answers (●), and five negative answers (●).
+
+Three big categories:
+A. affirmative
+B. non-committal
+C. negative 
+
+Each category has 5 answers.
+
+
+"""
+
+given_question = "Do you love this game?"
+chosen_answer = "" #intially it is empty string
+user = 'Manish'
+
+affirmative_answers = [
+    "It is certain",
+    "It is decidedly so",
+    "Without a doubt",
+    "Yes definitely",
+    "You may rely on it",
+    "As I see it, yes",
+    "Most likely",
+    "Outlook good",
+    "Yes",
+    "Signs point to yes"
+]
+
+non_committal_answers = [
+    "Reply hazy, try again",
+    "Ask again later",
+    "Better not tell you now",
+    "Cannot predict now",
+    "Concentrate and ask again"
+]
+
+negative_answers = [
+    "Don't count on it",
+    "My reply is no",
+    "My sources say no",
+    "Outlook not so good",
+    "Very doubtful"
+]
+
+answers = affirmative_answers + non_committal_answers + negative_answers
+total_answers = len(answers)
+index_range = range(1, total_answers+1)
+
+answers_with_indexes = zip(index_range, answers)
+answers_with_indexes = list(answers_with_indexes)
+
+# print(answers_with_indexes)
+
+"""answers_with_indexes is a list of tuples.
+so to access index of each tuple, I need to unpack them.
+for each answer, I can use for loop and 
+access only index.
+Then I will check if index chosen is equal to random index
+then answer to that chosen index will be stored in chosen answer
+and will break the loop.
+"""
+
+random_index = random.randint(1,total_answers-1)
+
+
+for index, answer in answers_with_indexes:
+    if index == random_index:
+        chosen_answer = answer
+        break    
+
+"""
+trace back and find out which category chosen answer belongs to
+and then display HAPPY , CONFUSED, SAD emoji along with chosen answer string literal.
+
+"""
+happy_emoji = "\U0001F60A"
+confused_emoji = "\U0001F615"
+sad_emoji = "\U0001F622"
+
+if chosen_answer in affirmative_answers:
+    chosen_answer = chosen_answer + happy_emoji
+elif chosen_answer in non_committal_answers:
+    chosen_answer = chosen_answer + confused_emoji
+elif chosen_answer in negative_answers:
+    chosen_answer = chosen_answer + sad_emoji
+else:
+    print(chosen_answer, "is not in category. Review code.")
+
+
+print("----------------------------------------\n")
+
+if given_question == '':
+    print('Kindly ask YES-NO question to try your luck.')
+else:
+    if user == "":
+        print("Question: ", given_question)
+    else:
+        print(user ,"asks question: ", given_question)
+    print("Magic 8-Ball's answer: ", chosen_answer)
+
+print("\n------------End of output------------")
