@@ -129,7 +129,7 @@ for record in cleaned_sales:
     total_sales += record[1]
     total_sales_rounded_2 = round(total_sales,2)
 
-print(f"Total Sales Amount: ${total_sales_rounded_2}")
+# print(f"Total Sales Amount: ${total_sales_rounded_2}")
 
 color_list = []
 for record in cleaned_sales:
@@ -146,19 +146,118 @@ def count_thread_type(color_list, chosen_color):
 
 # print(count_thread_type(color_list,'white'))
 
-# how to get unqiue list of color in color_list
+# how to get unqiue list of color in color_list+
 unique_color_list = []
 for thread in color_list:
     for color in thread:
         if color not in unique_color_list:
             unique_color_list.append(color)
 
-print(unique_color_list)
+# print(unique_color_list)
 
 for index in range(len(unique_color_list)):
     thread_frequency = count_thread_type(color_list,unique_color_list[index])
-    print(thread_frequency)
+    # print(thread_frequency)
 
+"""
+Second way of solving this:
+without using tuple
 
+"""
+print("=================================SECOND APPROACH==============================\n\n")
+
+daily_transactions = daily_sales.replace(';,;',':').split(",")
+
+# print(daily_transactions)
+daily_transactions_split = []
+
+for transaction in daily_transactions:
+    daily_transactions_split.append(transaction.split(':'))
+
+# print(daily_transactions_split)
+    
+transactions_clean = []
+
+for transaction in daily_transactions_split:
+    transaction_clean = []
+    for record in transaction:
+        transaction_clean.append(record.strip())
+    transactions_clean.append(transaction_clean)
+
+# print(transactions_clean)
+    
+customers = []
+sales = []
+colors_sold = []
+
+for transaction in transactions_clean:
+    customers.append(transaction[0])
+    sales.append(float(transaction[1].replace('$','')))
+    colors_sold.append(transaction[2].split('&'))
+
+# print(customers)
+# print(sales)
+# print(colors_sold)
+    
+# find total sales
+total_sales = 0    
+for amount in sales:
+    total_sales += amount
+    total_sales = round(total_sales, 2)
+
+print(f"Total Sales: ${total_sales} USD\n")
+
+# find unique list of colors
+unique_color_list = []
+
+for item in colors_sold:
+    if isinstance(item, list):
+        for color in item:
+            if color not in unique_color_list:
+                unique_color_list.append(color)
+    else:
+        if item not in unique_color_list:
+            unique_color_list.append(item)
+
+print("\nDistinct Color List: ",unique_color_list)
+
+#  find the count of occurence of 'white in daily sales.
+
+counter = 0
+for item in colors_sold:
+    counter += item.count('white')
+# print('white: {}'.format(counter))
+
+# find the count of occurence of each color in daily sales.
+
+def count_color(chosen_color):
+    counter = 0
+    for item in colors_sold:
+        counter += item.count(chosen_color)
+    return counter
+print("\nQuantity of Product of each color that was sold today: \n")
+for color in unique_color_list:
+    print ("{}: {}".format(color, count_color(color)))
+
+# Check if each transaction is done on same day
+transaction_dates = []
+for transaction in transactions_clean:
+    transaction_dates.append(transaction[3])
+
+# print('\nTransaction Dates in daily sales: ',transaction_dates)     
+
+#find the distinct value of dates from transaction dates.
+unique_dates_list = []
+for item in transaction_dates:
+    if item not in unique_dates_list:
+        unique_dates_list.append(item)
+
+if len(unique_dates_list) == 1:
+    print(f"\nOnly Transaction Date in daily_sales is : {unique_dates_list[0]}")  
+else:
+    print("\nWARNING: YOUR WHOLE ANALYSIS IS BASED ON WRONG DATA!")
+    print(f"\nFollowing are different dates found in daily_sales: ")
+    for date in unique_dates_list:
+        print(date)  
 
     
