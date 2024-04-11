@@ -34,7 +34,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
         # Send message to server 
         client_msg = input(client_uname + ' - ')
 
-        if client_msg == BYE:
+        if client_msg.lower() == BYE:
             print(f'\nConnection ended.')
             break
         encoded_client_msg = client_msg.encode()
