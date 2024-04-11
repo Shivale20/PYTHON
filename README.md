@@ -28,3 +28,5 @@ In this repository, I'll be sharing my progress as I dive into Python programmin
 [PY03_SOCKET_PROGRAMMING_IN_PYTHON](./PY03_SOCKET_PROGRAMMING_IN_PYTHON)
 
 - [SP01_Build_Chat_App](./PY03_SOCKET_PROGRAMMING_IN_PYTHON/SP01_Build_Chat_App/)
+
+- [SP02_Exchange_Python_Objects](./PY03_SOCKET_PROGRAMMING_IN_PYTHON/SP02_Exchange_Python_Objects)
