@@ -1,0 +1,37 @@
+SERVER HANDLE CLIENT FUNCTIONS
+
+SERVER HANDLE FIRST DATA
+    SERVER RECEIVES FIRST DATA
+        - FIRST DATA : CLIENT NAME
+        - EVENT: add active connection
+
+    SEVER SENDS FIRST DATA
+        - FIRST DATA: SERVER NAME
+        - ACTION: send in encode format to CLIENT
+
+
+SERVER HANDLE CHAT LOOP
+
+    SERVER SENDING CHAT DATA FROM CLIENT
+        - CHAT DATA:
+            1. DATA == bye
+                ACTION:
+                    a. break the LOOP
+                    b. close the connection
+                    c. remove active connection 
+
+            2. DATA.startswith("/file")
+                ACTION:
+                    a. send message to CLIENT: sending <filename>
+                    b. if not formatted properly but startswith /file: send message to CLIENT: trying to send file.
+
+            3. DATA having regular messages
+
+    SERVER RECEIVES CHAT DATA TO CLIENT
+        - CHAT DATA:
+            1. DATA == bye
+                ACTION:
+                    a. break the LOOP
+                    b. close the connection
+                    c. remove active connection 
+           

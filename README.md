@@ -27,6 +27,10 @@ In this repository, I'll be sharing my progress as I dive into Python programmin
 
 [PY03_SOCKET_PROGRAMMING_IN_PYTHON](./PY03_SOCKET_PROGRAMMING_IN_PYTHON)
 
-- [SP01_Build_Chat_App](./PY03_SOCKET_PROGRAMMING_IN_PYTHON/SP01_Build_Chat_App/)
+- [SP01_TCP_Sockets](./PY03_SOCKET_PROGRAMMING_IN_PYTHON/SP01_TCP_Sockets)
 
-- [SP02_Exchange_Python_Objects](./PY03_SOCKET_PROGRAMMING_IN_PYTHON/SP02_Exchange_Python_Objects)
+- [SP02_Transfer_Python_Objects](./PY03_SOCKET_PROGRAMMING_IN_PYTHON/SP02_Transfer_Python_Objects)
+
+- [SP03_Chat_App_Single_Server_Client](./PY03_SOCKET_PROGRAMMING_IN_PYTHON/SP03_Chat_App_Single_Server_Client)
+
+- [SP04_UDP_Sockets](./PY03_SOCKET_PROGRAMMING_IN_PYTHON/SP04_UDP_Sockets)
